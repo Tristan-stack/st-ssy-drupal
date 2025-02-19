@@ -18,8 +18,8 @@ global:
       css/component/table.css: {}
       css/component/tabs.css: {}
       css/component/buttons.css: {}
+      css/footer.css: {}
     layout:
       css/layout/layout.css: {}
     theme:
       css/theme/print.css: { media: print }
-      css/footer.css: {}

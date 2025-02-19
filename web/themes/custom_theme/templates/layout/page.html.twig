@@ -54,16 +54,9 @@
   {{ page.content }}
 </div>
 
-{# <div class="footer-content">
-  <div>
-    <a href="#">NEWSLETTER</a>
-  </div>
-  <p>© 2025 STÜSSY</p>
-</div> #}
-
-<footer class="site-footer">
+<div class="footer-wrapper">
   {{ page.footer }}
-</footer>
+</div>
 
 <style>
   body {
@@ -73,23 +66,56 @@
     padding: 0;
   }
 
-  .footer-content {
+  /* Style spécifique pour l'image dans le contenu */
+  .homepage-wrapper .text-content.clearfix.field.field--name-body.field--type-text-with-summary.field--label-hidden.field__item {
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Style spécifique pour le footer */
+  .footer-wrapper .text-content.clearfix.field.field--name-body.field--type-text-with-summary.field--label-hidden.field__item {
     display: flex;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 6px;
     background-color: white !important;
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #F5F5F5;
+    font-family: metropolis, sans-serif;
   }
 
-  .footer-content a {
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
+  .footer-wrapper .text-content.clearfix.field.field--name-body.field--type-text-with-summary.field--label-hidden.field__item::after {
+    display: none !important;
+    content: none !important;
   }
 
-  .footer-content p {
+  .footer-wrapper .text-content.clearfix.field.field--name-body.field--type-text-with-summary.field--label-hidden.field__item p {
     margin: 0;
-    color: black;
+    padding: 0;
+    color: black !important;
+    margin-right: 10px;
+  }
+
+  .footer-wrapper .text-content.clearfix.field.field--name-body.field--type-text-with-summary.field--label-hidden.field__item p:nth-child(2) {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    color: #646363 !important;
+  }
+
+  .footer-wrapper .text-content.clearfix.field.field--name-body.field--type-text-with-summary.field--label-hidden.field__item p a {
+    text-decoration: none;
+    color: black !important;
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+    font-weight: normal;
+  }
+
+  .footer-wrapper .text-content.clearfix.field.field--name-body.field--type-text-with-summary.field--label-hidden.field__item p a:hover {
+    font-weight: bold;
+    text-decoration: none !important;
+    background: none !important;
   }
 </style>
