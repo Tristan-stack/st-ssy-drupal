@@ -66,11 +66,31 @@
     padding: 0;
   }
 
+  /* Réduire l'espace entre le header et le contenu */
+  .site-header {
+    margin-bottom: -100px !important;
+    padding-bottom: 0 !important;
+  }
+
+  .homepage-wrapper {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
   /* Style spécifique pour l'image dans le contenu */
   .homepage-wrapper .text-content.clearfix.field.field--name-body.field--type-text-with-summary.field--label-hidden.field__item {
     border: none !important;
     margin: 0 !important;
     padding: 0 !important;
+  }
+
+  /* Style pour l'image elle-même */
+  .homepage-wrapper .text-content.clearfix.field.field--name-body.field--type-text-with-summary.field--label-hidden.field__item img {
+    width: 100% !important;
+    max-width: 700px !important;
+    height: auto !important;
+    display: block;
+    margin: 0 auto;
   }
 
   /* Style spécifique pour le footer */
@@ -83,6 +103,7 @@
     background-color: white !important;
     border-top: 1px solid #F5F5F5;
     font-family: metropolis, sans-serif;
+    margin-top: -140px !important;
   }
 
   .footer-wrapper .text-content.clearfix.field.field--name-body.field--type-text-with-summary.field--label-hidden.field__item::after {
@@ -100,7 +121,7 @@
   .footer-wrapper .text-content.clearfix.field.field--name-body.field--type-text-with-summary.field--label-hidden.field__item p:nth-child(2) {
     margin: 0;
     padding: 0;
-    font-size: 12px;
+    font-size: 10px;
     color: #646363 !important;
   }
 
@@ -109,7 +130,7 @@
     color: black !important;
     padding: 0;
     margin: 0;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: normal;
   }
 
