@@ -1,9 +1,8 @@
-name: custom-theme
+name: Custom Theme
 type: theme
 base theme: olivero
-description: A flexible theme with a responsive, mobile-first layout.
-package: Custom
-core_version_requirement: ^10 || ^11
+description: 'Mon thème personnalisé basé sur Olivero'
+core_version_requirement: ^10
 libraries:
   - custom_theme/global
 regions:
@@ -12,9 +11,11 @@ regions:
   secondary_menu: 'Secondary menu'
   page_top: 'Page top'
   page_bottom: 'Page bottom'
-  featured: 'Featured'
+  highlighted: 'Highlighted'
+  featured_top: 'Featured top'
   breadcrumb: 'Breadcrumb'
   content: 'Content'
-  sidebar_first: 'Sidebar first'
-  sidebar_second: 'Sidebar second'
+  sidebar: 'Sidebar'
+  featured_bottom: 'Featured bottom'
   footer: 'Footer'
+

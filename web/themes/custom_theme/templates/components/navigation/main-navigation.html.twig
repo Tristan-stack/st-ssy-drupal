@@ -1,0 +1,237 @@
+{#
+/**
+* @file
+* Theme implementation for main navigation.
+*/
+#}
+<nav class="main-nav">
+    <div class="nav-left">
+        <a href="{{ front_page }}" class="logo">
+            <img src="{{ base_path ~ directory }}/images/wp2255918.jpg" alt="{{ site_name }}" class="logo-img">
+        </a>
+        <ul class="menu-list">
+            <li class="menu-item">
+                <a href="/shop" class="menu-link">SHOP</a>
+                <span class="arrow">›</span>
+            </li>
+            <li><a href="#">FEATURES</a></li>
+            <li class="menu-item">
+                <a href="#" class="menu-link">SUPPORT</a>
+                <span class="arrow">›</span>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <ul class="utility-menu">
+        <li><a href="#">SEARCH</a></li>
+        <li><a href="#">US/$</a></li>
+        <li><a href="#">BAG</a></li>
+    </ul>
+
+</nav>
+
+<div class="subnav shop-subnav">
+    <div class="subnav-content">
+        <ul class="subnav-list">
+            <li><a href="/shop/new">NEW ARRIVALS</a></li>
+            <li><a href="#">OUTERWEAR</a></li>
+            <li><a href="#">TEES</a></li>
+            <li><a href="#">CREWS</a></li>
+            <li><a href="#">KNITS</a></li>
+            <li><a href="#">TOPS & SHIRTS</a></li>
+            <li><a href="#">PANTS</a></li>
+            <li><a href="#">DENIM</a></li>
+            <li><a href="#">SHORTS</a></li>
+            <li><a href="#">HOODIES</a></li>
+            <li><a href="#">HEADWEAR</a></li>
+            <li><a href="#">EYEGEAR</a></li>
+            <li><a href="#">ACCESSORIES</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="subnav support-subnav">
+    <div class="subnav-content">
+        <ul class="subnav-list">
+            <li><a href="#">CUSTOMER SUPPORT</a></li>
+            <li><a href="#">CHAT</a></li>
+            <li><a href="#">ACCOUNT</a></li>
+            <li><a href="#">CHAPTERS</a></li>
+            <li><a href="#">SHIPPING & RETURNS</a></li>
+            <li><a href="#">SIZE GUIDE</a></li>
+            <li><a href="#">LEGAL</a></li>
+            <li><a href="#">ACCESSIBILITY</a></li>
+        </ul>
+    </div>
+</div>
+
+<style>
+    .main-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4px;
+        border-bottom: 1px solid #F5F5F5;
+    }
+
+    .nav-left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu-list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 24px;
+    }
+
+    .utility-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 24px;
+        margin-right: 16px;
+    }
+
+    .main-nav a {
+        text-decoration: none;
+        color: #000;
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    .main-nav a:hover {
+        font-weight: bold;
+    }
+
+    .logo-img {
+        height: 50px;
+        padding-right: 66px;
+        margin-left: 12px;
+    }
+
+    .menu-item {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        cursor: pointer;
+    }
+
+    .arrow {
+        display: inline-block;
+        font-size: 16px;
+        transition: transform 0.3s ease;
+    }
+
+    .menu-item.active .arrow {
+        transform: rotate(90deg);
+    }
+
+    .menu-item.active .menu-link {
+        font-weight: bold;
+    }
+
+    .subnav {
+        position: absolute;
+        width: 100%;
+        background: white;
+        border-bottom: 1px solid #F5F5F5;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .subnav.active {
+        display: block;
+        opacity: 1;
+    }
+
+    .subnav-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 14px 0;
+    }
+
+    .subnav-list {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 32px;
+        /* Aligner avec le menu principal */
+    }
+
+    .subnav-list a {
+        font-size: 11px;
+        letter-spacing: 0.5px;
+        color: #646363;
+        text-decoration: none;
+    }
+
+    .subnav-list a:hover {
+        font-weight: bold;
+        color: #000;
+        text-decoration: underline;
+    }
+</style>
+
+<script>
+    document.querySelectorAll('.menu-item').forEach(item => {
+        item.addEventListener('click', function (e) {
+            // Empêcher la navigation si on clique sur la flèche
+            if (e.target.classList.contains('arrow')) {
+                e.preventDefault();
+            }
+
+            // Toggle active class
+            this.classList.toggle('active');
+
+            // Identifier quelle sous-navigation afficher
+            const isShop = this.querySelector('.menu-link').textContent === 'SHOP';
+            const isSupport = this.querySelector('.menu-link').textContent === 'SUPPORT';
+
+            // Gérer l'affichage des sous-menus
+            const shopSubnav = document.querySelector('.shop-subnav');
+            const supportSubnav = document.querySelector('.support-subnav');
+
+            if (isShop) {
+                shopSubnav.classList.toggle('active');
+                supportSubnav.classList.remove('active');
+            } else if (isSupport) {
+                supportSubnav.classList.toggle('active');
+                shopSubnav.classList.remove('active');
+            }
+
+            // Remove active class from other items
+            document.querySelectorAll('.menu-item').forEach(otherItem => {
+                if (otherItem !== this) {
+                    otherItem.classList.remove('active');
+                }
+            });
+        });
+    });
+
+    // Fermer les sous-menus quand on clique ailleurs sur la page
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('.menu-item') && !e.target.closest('.subnav')) {
+            document.querySelectorAll('.subnav').forEach(subnav => {
+                subnav.classList.remove('active');
+            });
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.classList.remove('active');
+            });
+        }
+    });
+</script>
