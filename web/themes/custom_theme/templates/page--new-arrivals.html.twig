@@ -1,0 +1,181 @@
+{# Hérite de la structure de base de votre page.html.twig #}
+<div class="homepage-wrapper">
+    <header class="site-header">
+        {% include '@custom_theme/components/navigation/main-navigation.html.twig' %}
+    </header>
+
+    <div class="new-arrivals-content">
+
+        <div class="products-grid">
+            {% for i in 1..12 %}
+            <div class="product-card">
+                <div class="product-image">
+                    <img class="verso" src="{{ base_path ~ directory }}/images/tshirt-verso.png" alt="T-shirt verso">
+                    <img class="recto" src="{{ base_path ~ directory }}/images/tshirt-recto.png" alt="T-shirt recto">
+                </div>
+                <div class="product-info">
+                    <h3>T-shirt Classic {{ i }}</h3>
+                    <p class="price">$45</p>
+                    <div class="sizes">
+                        <button class="size-btn">S</button>
+                        <button class="size-btn">M</button>
+                        <button class="size-btn">L</button>
+                        <button class="size-btn">XL</button>
+                        <button class="size-btn">XXL</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="footer-wrapper">
+    {{ page.footer }}
+</div>
+
+<style>
+    .new-arrivals-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+    }
+
+    .product-card {
+        padding: 15px;
+        transition: all 0.3s ease;
+    }
+
+    .product-image {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        margin-bottom: 15px;
+    }
+
+    .product-image img {
+        width: 100%;
+        height: 80%;
+        object-fit: cover;
+        transition: opacity 0.3s ease;
+    }
+
+    .product-image .verso {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+    }
+
+    .product-card:hover .verso {
+        opacity: 1;
+    }
+
+    .product-card:hover .recto {
+        opacity: 0;
+    }
+
+    .product-info {
+        text-align: left;
+        padding-left: 10px;
+    }
+
+    .product-info h3 {
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+
+    .price {
+        color: #000;
+        font-size: 12px;
+    }
+
+    .sizes {
+        display: none;
+        justify-content: flex-start;
+    }
+
+    .product-card:hover .sizes {
+        display: flex;
+    }
+
+    .size-btn {
+        background: white;
+        padding: 5px 10px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+    }
+
+    .size-btn:hover {
+        font-weight: bold;
+    }
+
+    /* Hériter des styles existants */
+    body {
+        background: white !important;
+        background-image: none !important;
+        margin: 0;
+        padding: 0;
+    }
+
+    .site-header {
+        margin-bottom: -100px !important;
+        padding-bottom: 0 !important;
+    }
+
+    .footer-wrapper .text-content.clearfix.field.field--name-body.field--type-text-with-summary.field--label-hidden.field__item {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        padding: 6px;
+        background-color: white !important;
+        border-top: 1px solid #F5F5F5;
+        font-family: metropolis, sans-serif;
+        margin-top: -140px !important;
+    }
+
+    .footer-wrapper .text-content.clearfix.field.field--name-body.field--type-text-with-summary.field--label-hidden.field__item::after {
+        display: none !important;
+        content: none !important;
+    }
+
+    .footer-wrapper .text-content.clearfix.field.field--name-body.field--type-text-with-summary.field--label-hidden.field__item p {
+        margin: 0;
+        padding: 0;
+        color: black !important;
+        margin-right: 10px;
+    }
+
+    .footer-wrapper .text-content.clearfix.field.field--name-body.field--type-text-with-summary.field--label-hidden.field__item p:nth-child(2) {
+        margin: 0;
+        padding: 0;
+        font-size: 10px;
+        color: #646363 !important;
+    }
+
+    .footer-wrapper .text-content.clearfix.field.field--name-body.field--type-text-with-summary.field--label-hidden.field__item p a {
+        text-decoration: none;
+        color: black !important;
+        padding: 0;
+        margin: 0;
+        font-size: 10px;
+        font-weight: normal;
+    }
+
+    .footer-wrapper .text-content.clearfix.field.field--name-body.field--type-text-with-summary.field--label-hidden.field__item p a:hover {
+        font-weight: bold;
+        text-decoration: none !important;
+        background: none !important;
+    }
+</style>
