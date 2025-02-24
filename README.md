@@ -62,7 +62,7 @@ drush cache:rebuild
 
 ## Technologies utilisées
 
-- Drupal 9/10
+- Drupal 11
 - HTML5/CSS3
 - JavaScript vanilla
 - Twig templating
@@ -117,14 +117,6 @@ npm run build
 4. Push vers la branche (`git push origin feature/AmazingFeature`)
 5. Ouvrir une Pull Request
 
-## Améliorations futures
-
-- Intégration d'un panier dynamique
-- Système de paiement
-- Optimisation SEO
-- Cache avancé
-- Tests automatisés
-- Internationalisation
 
 ## Licence
 
@@ -132,6 +124,6 @@ Ce projet est sous licence MIT - voir le fichier [LICENSE.md](LICENSE.md) pour p
 
 ## Contact
 
-Tristan - tristan.gerber@etu.unistra.
+Tristan Gerber - tristan.gerber@etu.unistra.fr
 
 Lien du projet: [https://github.com/Tristan-stack/st-ssy-drupal](https://github.com/Tristan-stack/st-ssy-drupal)
