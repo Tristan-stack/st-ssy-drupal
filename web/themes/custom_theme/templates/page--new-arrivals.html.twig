@@ -1,20 +1,21 @@
 {# Hérite de la structure de base de votre page.html.twig #}
-<div class="homepage-wrapper">
+<div class="page-wrapper">
     <header class="site-header">
         {% include '@custom_theme/components/navigation/main-navigation.html.twig' %}
     </header>
 
-    <div class="new-arrivals-content">
-
+    <main class="new-arrivals-content">
         <div class="products-grid">
-            {% for i in 1..12 %}
+            {% for i in 1..4 %}
             <div class="product-card">
                 <div class="product-image">
-                    <img class="verso" src="{{ base_path ~ directory }}/images/tshirt-verso.png" alt="T-shirt verso">
-                    <img class="recto" src="{{ base_path ~ directory }}/images/tshirt-recto.png" alt="T-shirt recto">
+                    <a href="{{ base_path }}/detail-page">
+                        <img class="verso" src="{{ base_path ~ directory }}/images/tshirt-verso.png" alt="T-shirt verso">
+                        <img class="recto" src="{{ base_path ~ directory }}/images/tshirt-recto.png" alt="T-shirt recto">
+                    </a>
                 </div>
                 <div class="product-info">
-                    <h3>T-shirt Classic {{ i }}</h3>
+                    <p>Dice tee pigment dyed</p>
                     <p class="price">$45</p>
                     <div class="sizes">
                         <button class="size-btn">S</button>
@@ -27,92 +28,116 @@
             </div>
             {% endfor %}
         </div>
-    </div>
-</div>
+    </main>
 
-<div class="footer-wrapper">
-    {{ page.footer }}
+    <footer class="footer-wrapper">
+        {{ page.footer }}
+    </footer>
 </div>
 
 <style>
+    .page-wrapper {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
     .new-arrivals-content {
-        max-width: 1400px;
+        flex: 1;
+        max-width: 1550px;
         margin: 0 auto;
         padding: 20px;
     }
 
     .products-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-        gap: 40px;
-        margin-bottom: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: flex-start;
     }
 
-    .product-card {
-        padding: 15px;
-        transition: all 0.3s ease;
-    }
-
+    /* Ajout des styles pour les images */
     .product-image {
+        width: 350px;
+        /* Largeur fixe pour le conteneur */
+        height: 450px;
+        /* Hauteur fixe pour le conteneur */
         position: relative;
-        width: 100%;
-        height: 100%;
         overflow: hidden;
-        margin-bottom: 15px;
     }
 
     .product-image img {
         width: 100%;
-        height: 80%;
+        height: 100%;
         object-fit: cover;
-        transition: opacity 0.3s ease;
-    }
-
-    .product-image .verso {
         position: absolute;
         top: 0;
         left: 0;
+    }
+
+    .product-image img.recto {
         opacity: 0;
+        transition: opacity 0.3s ease;
     }
 
-    .product-card:hover .verso {
-        opacity: 1;
+    .product-card {
+        display: flex;
+        flex-direction: column;
+        align-items: self-start;
     }
 
-    .product-card:hover .recto {
-        opacity: 0;
-    }
-
-    .product-info {
-        text-align: left;
-        padding-left: 10px;
-    }
-
-    .product-info h3 {
-        font-size: 14px;
-        text-transform: uppercase;
-    }
-
-    .price {
-        color: #000;
+    .product-card p {
+        margin: 0;
+        padding: 0;
+        margin-top: 4px;
         font-size: 12px;
+        color: black;
+        font-family: metropolis, sans-serif;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+
+    .product-card .price {
+        margin: 0;
+        margin-top: -10px;
+        font-size: 12px;
+        color: black;
+        font-family: metropolis, sans-serif;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+
+    .product-card:hover .product-image img.recto {
+        opacity: 1;
+        transition: opacity 0.3s ease;
+    }
+
+    .product-card:hover .product-image img.verso {
+        opacity: 0;
+        transition: opacity 0.3s ease;
     }
 
     .sizes {
-        display: none;
-        justify-content: flex-start;
+        display: flex;
+        gap: 10px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
     }
 
     .product-card:hover .sizes {
-        display: flex;
+        opacity: 1;
+        visibility: visible;
     }
 
     .size-btn {
-        background: white;
-        padding: 5px 10px;
-        font-size: 12px;
+        background: none;
+        border: none;
+        padding: 5px;
         cursor: pointer;
-        transition: all 0.3s ease;
+        font-family: metropolis, sans-serif;
+        font-size: 12px;
+        color: black;
         text-transform: uppercase;
     }
 
@@ -177,5 +202,10 @@
         font-weight: bold;
         text-decoration: none !important;
         background: none !important;
+    }
+
+    .footer-wrapper {
+        margin-top: auto;
+        width: 100%;
     }
 </style>
